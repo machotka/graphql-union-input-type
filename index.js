@@ -120,12 +120,12 @@ module.exports = function UnionInputType(options) {
 					inputType = referenceTypes[type];
 				}
 			}
-			const errors = coerceValue(value, inputType).errors;
+			var errors = coerceValue(value, inputType).errors;
 
 			if (!errors) {
 				return value;
 			} else {
-				const errorString = errors.map((error) => {
+				var errorString = errors.map((error) => {
 					return "\n" + error.message;
 				}).join('');
 				throw new GraphQLError(errorString);
